@@ -1,0 +1,215 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+  <!-- [Fonts] -->
+  <link href='http://fonts.googleapis.com/css?family=Advent+Pro:400,300' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet/less" href="less/style.less">
+	<script src="js/libs/less-1.2.2.min.js"></script>
+
+	<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+  <header class="main-head">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a href="#" class="brand brand-type">
+            Digital Fabric
+          </a>
+
+          <ul class="nav">
+            <li><a href="index.html">Create a Qr Code</a></li>
+            <li><a href="howtouse.html">How to Use</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container" id="main-accordion">
+
+    <section class="inner-content">
+      <article>
+        <header>
+          <h2>Qr Code Generator:</h2>
+          <hr>
+        </header>
+      </article>
+
+      <article class="button-guide">
+        <button class="btn" data-toggle="collapse" data-target="#qr-url">
+          Qr URL
+        </button>
+
+        <button class="btn" data-toggle="collapse" data-target="#qr-text">
+          Qr Text
+        </button>
+
+        <button class="btn" data-toggle="collapse" data-target="#qr-itunes">
+          Qr iTunes
+        </button>
+
+        <button class="btn" data-toggle="collapse" data-target="#qr-contact">
+          Qr Add Contact
+        </button>
+
+        <hr>
+
+      </article>
+
+      <div id="wh" class="dimensions">
+          <fieldset>
+            <form class="dim">
+              <div class="control-group">
+                <label for="Width" class="control-label"><h4>Width: </h4></label>
+                
+                <div class="controls">
+                  <input name="qr-width" type="text" class="span3" value="150px">
+                </div>
+                
+                <label for="Height" class="control-label"><h4>Height:</h4></label>
+                
+                <div class="controls">
+                  <input name="qr-height" type="text" class="span3" value="150px">
+                </div>
+              </div>
+            </form>
+          </fieldset>
+      </div>
+
+      <article>       
+        <div id="qr-url" class="collapse out">
+          <hr>
+          <fieldset>
+            <form class="qr-url">
+              <div class="control-group">
+                <label for="input" class="control-label"><h4>URL:</h4></label>
+                
+                  <div class="controls">
+                    <input name="qr-content-url" type="text" class="span3">
+                  </div>
+              </div>
+
+              <br>
+
+              <input type="button" id="qr-url-action"  class="btn-primary" value="Create Qr URL"></input>
+            </form>
+
+            <div class="qr-preview"></div>
+          </fieldset>
+        </div>  
+      </article>
+      
+      <article>      
+        <div id="qr-text" class="collapse out">
+          <hr>
+          <fieldset>
+            <form class="qr-text">
+              <div class="control-group">
+                <label for="Qr URL" class="control-label"><h4>Text:</h4></label>
+                <div class="controls">
+                  <textarea name="qr-content-text" cols="150" rows="15"></textarea>
+                </div>
+              </div>
+
+              <br>
+
+              <input type="button" id="qr-text-action" class="btn-primary" value="Create Qr Text"></input>
+            </form>
+
+            <div class="qr-preview"></div>
+          </fieldset>
+          
+        </div>
+      </article>
+      
+      <article>      
+        <div id="qr-contact" class="collapse out">
+          <hr>
+          <fieldset>
+            <form class="qr-contact">
+              <div class="control-group">
+                <label for="Name" class="control-label"><h4>Name:</h4></label>
+                
+                <div class="controls">
+                  <input id="qr-contact-name" type="text" class="span3">
+                </div>
+
+                <label for="Last Name" class="control-label"><h4>Last Name:</h4></label>
+                
+                <div class="controls">
+                  <input id="qr-contact-lastName" type="text" class="span3">
+                </div>
+
+                <label for="Phone" class="control-label"><h4>Phone:</h4></label>
+                
+                <div class="controls">
+                  <input id="qr-contact-phone" type="text" class="span3">
+                </div>
+
+                <label for="Email" class="control-label"><h4>Email:</h4></label>
+                
+                <div class="controls">
+                  <input id="qr-contact-email" type="text" class="span3">
+                </div>
+
+                <label for="Address" class="control-label"><h4>Address:</h4></label>
+                
+                <div class="controls">
+                  <input id="qr-contact-addrs" type="text" class="span3">
+                </div>
+              </div>
+
+              <br>
+
+              <input type="button" id="qr-contact-action" class="btn-primary" value="Create Qr Contact"></input>
+            </form>
+            <div class="qr-preview"></div>
+          </fieldset>
+        </div>
+      </article>
+
+      <hr>
+    </section>
+
+  </div>
+
+  <footer class="main-footer">
+    <hr>
+    <p>
+      &copy; Digital Fabric 2012
+    </p>
+  </footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+<script src="js/libs/bootstrap/transition.js"></script>
+<script src="js/libs/bootstrap/collapse.js"></script>
+
+<script src="js/script.js"></script>
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>

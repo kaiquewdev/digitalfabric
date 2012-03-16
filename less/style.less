@@ -1,0 +1,136 @@
+@import "bootstrap/bootstrap.less";
+
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+@import "bootstrap/responsive.less";
+
+/* ===== Primary Styles ========================================================
+   Author: Kaique da Silva <kaique.developer@gmail.com>
+   ========================================================================== */
+.typeApply() {
+	font-family: 'Advent Pro', sans-serif !important;
+}
+
+.desktopScreenLimitApply() {
+	width: 960px;
+	margin: 0 auto;
+}
+
+
+.main-head {
+	.navbar {
+		.navbar-inner {
+			.content {
+				.brand-type {
+					font-family: 'Advent Pro', sans-serif;
+				}
+			}
+		}
+	}
+}
+
+.main-container {
+	.desktopScreenLimitApply();
+
+	min-height: 550px;
+	padding: 15px 0;	
+
+	.inner-content {
+		.button-guide {
+			.dimensions {
+				float: right;
+				margin: 0 25px 0 0;
+			}
+		}
+
+		article {
+			margin: 10px 0;
+
+			fieldset {
+				form {
+					float: left;
+				}
+
+				.qr-preview {
+					float: right;
+
+					min-width: 50px;
+					min-height: 50px;
+
+					max-width: 1000px;
+					max-height: 1000px;
+					
+					display: none;
+				}
+			}
+
+			hr {
+				position: relative;
+				clear: left;
+			}
+
+			textarea {
+				width: 400px !important;
+			}
+		}
+
+		.inner-explain {
+			.explain-title {
+				border-bottom: 1px solid #000+200;
+				padding: 5px 0;
+
+				.mark {
+					background: url(../img/glyphicons-halflings.png) no-repeat 0 -90px;
+					width: 14px;
+					height: 25px;
+					display: block;
+					float: left;
+					text-indent:-99999px;
+					margin: 0 10px;
+				}
+			}
+
+			.explain-content {
+				margin: 10px 0 0;
+
+				.well {
+					margin: 0;
+				}
+
+				.accentuate {
+					background: #444f43+10;
+					padding: 5px 8px 7px;
+
+					border-radius: 5px;
+					-moz-border-radius: 5px;
+					-webkit-border-radius: 5px;
+					-o-border-radius: 5px;
+					
+					color: #fff;
+
+					margin: 10px 0;
+				}
+
+				.explain-paragraph {
+					margin: 10px 0;
+
+					.explain-line {
+						display: block;
+						clear: left;
+						margin: 25px 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+.main-footer {
+	p {
+		text-align: center;
+		color: #000+150;
+	}
+}
