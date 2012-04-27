@@ -8,8 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title></title>
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="description" content="Create Qr code using patterns">
+	<meta name="author" content="kaique.developer@gmail.com">
 
 	<meta name="viewport" content="width=device-width">
 
@@ -42,32 +42,39 @@
     </div>
   </header>
 
-  <div class="main-container" id="main-accordion">
-
-    <section class="inner-content">
+  <div> 
+    <section>
       <article>
-        <header>
+        <header class="limit">
           <h2>Qr Code Generator:</h2>
-          <hr>
         </header>
+        <hr class="full-wrapp" />
       </article>
+    </section>
+  </div>
 
+  <div class="main-container" id="main-accordion" >
+    <section class="inner-content">
       <article class="button-guide">
-        <button class="btn" data-toggle="collapse" data-target="#qr-url">
-          Qr URL
-        </button>
+        <div class="btn-group">
+            <button class="btn" data-target="#qr-url">
+              Qr URL
+            </button>
 
-        <button class="btn" data-toggle="collapse" data-target="#qr-text">
-          Qr Text
-        </button>
+            <button class="btn" data-target="#qr-text">
+              Qr Text
+            </button>
 
-        <button class="btn" data-toggle="collapse" data-target="#qr-itunes">
-          Qr iTunes
-        </button>
+            <!--
+            <button class="btn" data-target="#qr-itunes">
+              Qr iTunes
+            </button>
+            -->
 
-        <button class="btn" data-toggle="collapse" data-target="#qr-contact">
-          Qr Add Contact
-        </button>
+            <button class="btn" data-target="#qr-contact">
+              Qr Add Contact
+            </button>
+        </div>
 
         <hr>
 
@@ -93,97 +100,99 @@
           </fieldset>
       </div>
 
-      <article>       
-        <div id="qr-url" class="collapse out">
-          <hr>
-          <fieldset>
-            <form class="qr-url">
-              <div class="control-group">
-                <label for="input" class="control-label"><h4>URL:</h4></label>
-                
-                  <div class="controls">
-                    <input name="qr-content-url" type="text" class="span3">
+      <section class="qr-forms">
+          <article>       
+            <div id="qr-url" class="sectionOut">
+              <hr>
+              <fieldset>
+                <form class="qr-url">
+                  <div class="control-group">
+                    <label for="input" class="control-label"><h4>URL:</h4></label>
+                    
+                      <div class="controls">
+                        <input name="qr-content-url" type="text" class="span3">
+                      </div>
                   </div>
-              </div>
 
-              <br>
+                  <br>
 
-              <input type="button" id="qr-url-action"  class="btn-primary" value="Create Qr URL"></input>
-            </form>
+                  <input type="button" id="qr-url-action"  class="btn-primary" value="Create Qr URL"></input>
+                </form>
 
-            <div class="qr-preview"></div>
-          </fieldset>
-        </div>  
-      </article>
-      
-      <article>      
-        <div id="qr-text" class="collapse out">
-          <hr>
-          <fieldset>
-            <form class="qr-text">
-              <div class="control-group">
-                <label for="Qr URL" class="control-label"><h4>Text:</h4></label>
-                <div class="controls">
-                  <textarea name="qr-content-text" cols="150" rows="15"></textarea>
-                </div>
-              </div>
-
-              <br>
-
-              <input type="button" id="qr-text-action" class="btn-primary" value="Create Qr Text"></input>
-            </form>
-
-            <div class="qr-preview"></div>
-          </fieldset>
+                <div class="qr-preview"></div>
+              </fieldset>
+            </div>  
+          </article>
           
-        </div>
-      </article>
-      
-      <article>      
-        <div id="qr-contact" class="collapse out">
-          <hr>
-          <fieldset>
-            <form class="qr-contact">
-              <div class="control-group">
-                <label for="Name" class="control-label"><h4>Name:</h4></label>
-                
-                <div class="controls">
-                  <input id="qr-contact-name" type="text" class="span3">
-                </div>
+          <article>      
+            <div id="qr-text" class="sectionOut">
+              <hr>
+              <fieldset>
+                <form class="qr-text">
+                  <div class="control-group">
+                    <label for="Qr URL" class="control-label"><h4>Text:</h4></label>
+                    <div class="controls">
+                      <textarea name="qr-content-text" cols="150" rows="15"></textarea>
+                    </div>
+                  </div>
 
-                <label for="Last Name" class="control-label"><h4>Last Name:</h4></label>
-                
-                <div class="controls">
-                  <input id="qr-contact-lastName" type="text" class="span3">
-                </div>
+                  <br>
 
-                <label for="Phone" class="control-label"><h4>Phone:</h4></label>
-                
-                <div class="controls">
-                  <input id="qr-contact-phone" type="text" class="span3">
-                </div>
+                  <input type="button" id="qr-text-action" class="btn-primary" value="Create Qr Text"></input>
+                </form>
 
-                <label for="Email" class="control-label"><h4>Email:</h4></label>
-                
-                <div class="controls">
-                  <input id="qr-contact-email" type="text" class="span3">
-                </div>
+                <div class="qr-preview"></div>
+              </fieldset>
+              
+            </div>
+          </article>
+          
+          <article>      
+            <div id="qr-contact" class="sectionOut">
+              <hr>
+              <fieldset>
+                <form class="qr-contact">
+                  <div class="control-group">
+                    <label for="Name" class="control-label"><h4>Name:</h4></label>
+                    
+                    <div class="controls">
+                      <input id="qr-contact-name" type="text" class="span3">
+                    </div>
 
-                <label for="Address" class="control-label"><h4>Address:</h4></label>
-                
-                <div class="controls">
-                  <input id="qr-contact-addrs" type="text" class="span3">
-                </div>
-              </div>
+                    <label for="Last Name" class="control-label"><h4>Last Name:</h4></label>
+                    
+                    <div class="controls">
+                      <input id="qr-contact-lastName" type="text" class="span3">
+                    </div>
 
-              <br>
+                    <label for="Phone" class="control-label"><h4>Phone:</h4></label>
+                    
+                    <div class="controls">
+                      <input id="qr-contact-phone" type="text" class="span3">
+                    </div>
 
-              <input type="button" id="qr-contact-action" class="btn-primary" value="Create Qr Contact"></input>
-            </form>
-            <div class="qr-preview"></div>
-          </fieldset>
-        </div>
-      </article>
+                    <label for="Email" class="control-label"><h4>Email:</h4></label>
+                    
+                    <div class="controls">
+                      <input id="qr-contact-email" type="text" class="span3">
+                    </div>
+
+                    <label for="Address" class="control-label"><h4>Address:</h4></label>
+                    
+                    <div class="controls">
+                      <input id="qr-contact-addrs" type="text" class="span3">
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <input type="button" id="qr-contact-action" class="btn-primary" value="Create Qr Contact"></input>
+                </form>
+                <div class="qr-preview"></div>
+              </fieldset>
+            </div>
+          </article>
+        </section>
 
       <hr>
     </section>

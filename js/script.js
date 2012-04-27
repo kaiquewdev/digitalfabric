@@ -50,6 +50,27 @@ var popAlert = function popAlert( message ) {
 };
 
 $( function () {
+    // Collapse
+    // btn-group btn
+    $('.btn-group .btn').on('click', function () {
+        var sectionID = $(this).attr( 'data-target' );
+        var forms = $('.qr-forms article div').map( function ( e ) {
+
+            if ( $(this).attr('id') === 'qr-text' || $(this).attr('id') === 'qr-url' || $(this).attr('id') === 'qr-contact' ) {
+                $('this').hide();
+                
+                if ( $(this).attr('id') === sectionID.replace('#', '') ) {
+                    return $(this).show(); 
+                }
+            }
+        } );
+
+        //$('.sectionOut').hide();
+        //$('.qr-forms article div').each( function ( element ) {
+        //    console.log( $('.qr-froms article div').eq( element ).attr('id') )
+        //});
+        console.log( forms )
+    });
 
 	// Create a URL qr code
 	$('#qr-url-action').bind('click', function () {
