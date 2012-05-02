@@ -63,11 +63,12 @@ var BeautyTime = (function () {
         for ( var tfPointer = 0, tfLen = timeFormat.length; tfPointer < tfLen; tfPointer += 1 ) {
             for ( var methodPointer in acceptList ) {
                 if ( timeFormat[ tfPointer ] === methodPointer ) {
+                    var month = monthList[ _internal.get( acceptList[ methodPointer ] ) ];
+                    
                     if ( methodPointer === 'M' ) {
-                        var month = monthList[ _internal.get( acceptList[ methodPointer ] ) ];
                         output += ( month < 10 ) ? '0' + month : month;
                     } else {
-                        output += _internal.get( acceptList[ methodPointer ] ); 
+                        output += ( _internal.get( acceptList[ methodPointer ] ) < 10 ) ? '0' + _internal.get( acceptList[ methodPointer ] ) : _internal.get( acceptList[ methodPointer ] ) ; 
                     }
                 }
             }
