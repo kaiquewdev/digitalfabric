@@ -36,7 +36,8 @@ var BeautyTime = (function () {
 
     // Default set up
     _internal.time = {
-        format: '%Y%M%D%h%m%s',
+        format: '%Y%M%D%h%m',
+        months: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
     };
 
     // Internal time
@@ -47,6 +48,7 @@ var BeautyTime = (function () {
         var output = '';
         var self = this;
         var timeFormat = self.time.format.replace(/\s/gi, '').split('%');
+        var monthList = self.time.months;
         var acceptList = {
             'h': 'hours',
             'm': 'minutes',
@@ -61,7 +63,12 @@ var BeautyTime = (function () {
         for ( var tfPointer = 0, tfLen = timeFormat.length; tfPointer < tfLen; tfPointer += 1 ) {
             for ( var methodPointer in acceptList ) {
                 if ( timeFormat[ tfPointer ] === methodPointer ) {
-                    output += _internal.get( acceptList[ methodPointer ] ); 
+                    if ( methodPointer === 'M' ) {
+                        var month = monthList[ _internal.get( acceptList[ methodPointer ] ) ];
+                        output += ( month < 10 ) ? '0' + month : month;
+                    } else {
+                        output += _internal.get( acceptList[ methodPointer ] ); 
+                    }
                 }
             }
         }

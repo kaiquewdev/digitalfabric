@@ -49,20 +49,6 @@ var popAlert = function popAlert( message ) {
 	}
 };
 
-var quickTimer = function ( refreshMilliseconds, fn ) {
-    var output = false;
-    fn = fn || function () {};
-
-    if ( refreshMilliseconds && fn ) {
-        setInterval( function () {
-            output = true;
-            fn();
-        }, refreshMilliseconds );
-    }
-    
-    return output;
-};
-
 // To execute commands was started
 var main = function main() {
     var timestamp = $('.timestamp-text');
