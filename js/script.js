@@ -50,28 +50,35 @@ var popAlert = function popAlert( message ) {
 };
 
 $( function () {
-    // Collapse
-    // btn-group btn
-    $('.btn-group .btn').on('click', function () {
+    // Show and Hide widgets
+    var selectedButton = $('.btn-group .btn').on('click', function () {
         var sectionID = $(this).attr( 'data-target' );
+        var buttonIndex = $( this ).index();
+        var elements = ['#qr-text', '#qr-url', '#qr-contact'];
         var forms = $('.qr-forms article div').map( function ( e ) {
+            var button = $('.btn-group .btn');
+            
+            if ( $( this ).attr('id') === 'qr-text' || $( this ).attr('id') === 'qr-url' || $( this ).attr('id') === 'qr-contact' ) {
+                if ( button.eq( buttonIndex ).attr('class') === 'btn' || button.eq( buttonIndex ).attr('class').search('activated') === -1 ) {
+                    $( elements.join(', ') ).fadeOut('normal').hide();
+                    
+                    if ( $( this ).attr('id') === sectionID.replace('#', '') ) {
+                        if ( button.eq( buttonIndex ).attr('class') === 'btn' || button.eq( buttonIndex ).attr('class').search('activated') === -1 ) {
+                            $( this ).fadeIn('slow');
+                            
+                            button.removeClass('activated');
+                            button.eq( buttonIndex ).addClass('activated');
+                        }
 
-            if ( $(this).attr('id') === 'qr-text' || $(this).attr('id') === 'qr-url' || $(this).attr('id') === 'qr-contact' ) {
-                $('this').hide();
-                
-                if ( $(this).attr('id') === sectionID.replace('#', '') ) {
-                    return $(this).show(); 
+                        return $( this );
+                    }
                 }
             }
-        } );
+        });
 
-        //$('.sectionOut').hide();
-        //$('.qr-forms article div').each( function ( element ) {
-        //    console.log( $('.qr-froms article div').eq( element ).attr('id') )
-        //});
-        console.log( forms )
+        return forms;
     });
-
+    
 	// Create a URL qr code
 	$('#qr-url-action').bind('click', function () {
 		var url = getElementValue('input[name=qr-content-url]');
