@@ -78,6 +78,8 @@ $( function () {
 
         return forms;
     });
+    // Trigger the first button URL open widget
+    $('.btn-group .btn').eq(0).trigger('click');
     
 	// Create a URL qr code
 	$('#qr-url-action').bind('click', function () {
