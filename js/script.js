@@ -98,7 +98,7 @@ $( function () {
     });
 
 	// Create a URL qr code
-	$('#qr-url-action').bind('click', function () {
+	$('#qr-url-action, #qr-url-shorten-action').bind('click', function () {
 		var url = getElementValue('input[name=qr-content-url]');
 		var width = getElementValue('#wh input[name=qr-width]').replace(/px$/, '');
 		var height = getElementValue('#wh input[name=qr-height]').replace(/px$/, '');
@@ -114,8 +114,41 @@ $( function () {
 
 					// Clear preview
 					qrPreview.html(' ').css({display: 'none'});
-					
-					qrPreview.html('<img src="' + createQr({width: width, height: height, value: url}) + '"></img>');
+                    
+                    if ( $( this ).attr('id') === 'qr-url-action' ) {
+                        qrPreview.html('<img src="' + createQr({width: width, height: height, value: url}) + '"></img>');
+                    } if ( $( this ).attr('id') === 'qr-url-shorten-action' ) {
+                        // Settings of bitly api
+                        var sets = {
+                            urlField: $('input[name=qr-content-url]'),
+                            url: 'https://api-ssl.bitly.com/v3/shorten',
+                            type: 'GET',
+                            login: 'o_2ejhlgno90',
+                            apiKey: 'R_c8c6f4fb6808d97fe1d9e8b2314dde63',
+                            shortUrl: '',
+                        };
+                        // Shorten url and change value of field 
+                        var shortenURL = $.ajax({
+                            url: sets.url,
+                            type: sets.type,
+                            data: {
+                                login: sets.login,
+                                apiKey: sets.apiKey,
+                                longUrl: url
+                            },
+                            success: function ( response ) {
+                                response = $.parseJSON( response );
+                                sets.shortUrl = response.data.url;
+
+                                if ( sets.shortUrl ) {
+                                    // Change value of url field
+                                    sets.urlField.attr({
+                                        value: sets.shortUrl,
+                                    });
+                                }
+                            }
+                        });
+                    }
 
 					// Show with fade the qr
 					qrPreview.fadeTo('normal', 1);
