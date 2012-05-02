@@ -49,6 +49,38 @@ var popAlert = function popAlert( message ) {
 	}
 };
 
+var quickTimer = function ( refreshMilliseconds, fn ) {
+    var output = false;
+    fn = fn || function () {};
+
+    if ( refreshMilliseconds && fn ) {
+        setInterval( function () {
+            output = true;
+            fn();
+        }, refreshMilliseconds );
+    }
+    
+    return output;
+};
+
+// To execute commands was started
+var main = function main() {
+    var timestamp = $('.timestamp-text');
+    var refreshTime = Math.pow( 10, 4 );
+    // Trigger the first button URL open widget
+    $('.btn-group .btn').eq(0).trigger('click');
+    // Insert timestamp
+    timestamp.attr({
+        value: BeautyTime().now(),
+    });
+
+    var refreshTimestamp = setInterval( function () {
+        timestamp.attr({
+            value: BeautyTime().now(), 
+        }); 
+    }, refreshTime ); 
+};
+
 $( function () {
     // Show and Hide widgets
     var selectedButton = $('.btn-group .btn').on('click', function () {
@@ -78,9 +110,7 @@ $( function () {
 
         return forms;
     });
-    // Trigger the first button URL open widget
-    $('.btn-group .btn').eq(0).trigger('click');
-    
+
 	// Create a URL qr code
 	$('#qr-url-action').bind('click', function () {
 		var url = getElementValue('input[name=qr-content-url]');
@@ -213,5 +243,7 @@ $( function () {
 			$('form.dim .control-group').addClass('error');
 		}
 	});
-
+    
+    // Execute main function
+    main();
 });
